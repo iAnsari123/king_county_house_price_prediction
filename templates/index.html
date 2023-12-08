@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Price Predict</title>
+  <!--Google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <!--Stylesheet-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h1>House Price Prediction</h1>
+    <p>This is a house price predictor on the basis of input powered by ML for king county.</p>
+    <form action="{{ url_for('predict')}}" method="post">
+      <div class="row">
+        <div class="column">
+          <label for="Longitude">Longitude</label>
+          <input type="text" required name="long" placeholder="Longitude of House">
+        </div>
+        <div class="column">
+          <label for="Latitude">Latitude</label>
+          <input type="text" required name="lat" placeholder="Latitude of House">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="sqrt_lot">Area Size</label>
+          <input type="text" required name="sqrt_lot" placeholder="Area of the house">
+        </div>
+        <div class="column">
+          <label for="sqrt_lot15">Area Size 15</label>
+          <input type="text" required name="sqrt_lot15" placeholder="Area of the house to the nearest 15 neighbors">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="sqft_living15">Living Space</label>
+          <input type="text" required name="sqft_living15" placeholder="Size of living space">
+        </div>
+        <div class="column">
+          <label for="age">House Age</label>
+          <input type="text" required name="age" placeholder="Age of the house">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="zipcode">House Zipcode</label>
+          <input type="text" required name="zipcode" placeholder="Zipcode of the House">
+        </div>
+        <div class="column">
+          <label for="bathrooms">House Bathrooms</label>
+          <input type="text" required name="bathrooms" placeholder="No. of bathrooms in house">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="bedrooms">House Bedrooms</label>
+          <input type="text" required name="bedrooms" placeholder="No. of bedrooms in house">
+        </div>
+        <div class="column">
+          <label for="sqft_basement">House Basement</label>
+          <input type="text" required name="sqft_basement" placeholder="Basement size in house">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="view">House view</label>
+          <select name="view" id="">
+            <option value="0">No view(0)</option>
+            <option value="1">view(1)</option>
+            <option value="2">view(2)</option>
+            <option value="3">view(3)</option>
+            <option value="4">view(4)</option>
+          </select>
+        </div>
+        <div class="column">
+          <label for="floors">House Floors</label>
+          <input type="text" required name="floors" placeholder="Floors in house">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="condition">House Condition</label>
+          <select name="condition" id="">
+            <option value="1">Condition(1)</option>
+            <option value="2">Condition(2)</option>
+            <option value="3">Condition(3)</option>
+            <option value="4">Condition(4)</option>
+          </select>
+        </div>
+        <div class="column">
+          <label for="waterfront">House Waterfront</label>
+          <select name="waterfront" id="">
+            <option value="0">No Waterfront(0)</option>
+            <option value="1">Yes Waterfront(1)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="grade">House Grade</label>
+          <input type="text" required name="grade" placeholder="Overall grade of house">
+        </div>
+      </div>
+
+      <button>Submit</button>
+    </form>
+    <div class="result">
+      {{ prediction_text }}
+    </div>
+  </div>
+</body>
+
+</html>

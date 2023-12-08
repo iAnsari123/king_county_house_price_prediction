@@ -1,0 +1,9 @@
+# Required packages to be downloaded
+flask
+numpy 
+pandas
+matplotlib
+seaborn
+scikit-learn
+joblib
+xgboost
